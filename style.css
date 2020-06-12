@@ -1,0 +1,114 @@
+#cards{
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
+}
+
+ .card{
+  box-sizing: border-box;
+  margin: 2px;
+  /*  flex = flex-basis(這個item要占總比例的多少，這裡是用100去算一排要有13張，一張占7%)、flex-grow、flex-shrink */
+  flex: 7% 1 1;  /*每個 item 分配容器寬度*/
+  height: 8vw; /*依視窗的寬度等比例變化 ，卡片高度也需要等比例變化，容器寬度的預設值為視窗大小，所以這裡我們把卡片高度設定為 8vw，代表視窗大小的 8%。這樣就寬高就能等比例的變化*/
+  border: 2px solid #e0e0e0;
+  margin: 2px;
+  display: flex;
+  flex-direction:column;/*主要方向*/
+  justify-content: space-around/*設在column上的 */
+} 
+
+.card img {
+  max-width: 30%;
+  align-self: center;
+}
+
+
+.card p{
+  margin: 3px;
+  font-size: 10px;
+}
+
+.card p:last-child{
+  transform: rotate(180deg);
+} 
+
+.back{
+  background: url('https://i.imgur.com/X5nacsZ.png');
+  background-size: cover;
+}
+
+.paired{
+  background-color : #dae0e3;
+}
+
+#header{
+display:flex;
+margin: 0;
+/* 主要軸是column，所以justify-content變成排垂直的，align-items排平行的 */
+flex-direction: column;
+align-items: flex-end;
+width: 92%;
+}
+
+#header .title{
+  /* 主要軸是row */
+  display: flex;
+  width: 100%;
+  /* justify-content是主要軸上的排版 */
+  justify-content: flex-end;
+
+}
+
+#header .title img{
+max-width: 3em;
+}
+
+
+#header .title h2{
+padding-left: 0.5em;
+}
+
+#header .Score{
+margin: 0;
+color: #6c90ac;
+}
+
+#header .tried{
+margin-top: 0;
+}
+
+.wrong{
+  animation-name: wrongAnimation;
+  animation-duration: 0.2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes wrongAnimation{
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/* game finished */
+.completed{
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232,246,254,0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed > p{
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed > p:first-child{
+   font-size: 3em;
+   font-weight: 700;
+   color: #758d9a;
+}
